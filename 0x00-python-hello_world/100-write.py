@@ -1,2 +1,4 @@
-#!/bin/bash
-python3 -c 'import py_compile; py_compile.compile("'$PYFILE'", "'$PYFILE'c")'
+#!/usr/bin/python3
+import sys
+sys.stderr.write("and that piece of art is useful - Dora Korpar, 2015-10-19\n")
+sys.exit(1)
