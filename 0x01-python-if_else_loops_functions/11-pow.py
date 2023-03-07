@@ -1,2 +1,3 @@
 #!/usr/bin/python3
-def fizzbuzz():
+def pow(a, b):
+    return (a ** b)
