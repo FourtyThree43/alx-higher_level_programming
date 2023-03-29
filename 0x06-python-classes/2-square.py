@@ -6,9 +6,7 @@ class Square:
     """Represents a square with a a private attribute, size."""
 
     def __init__(self, size=0):
-        """Initializes a new instance of the Square class.
-        Args:
-           size: The size of the square (int).
+        """Initializes a new private instance: Size, of the Square class.
         """
         if type(size) is not int:
             raise TypeError("size must be an integer")
