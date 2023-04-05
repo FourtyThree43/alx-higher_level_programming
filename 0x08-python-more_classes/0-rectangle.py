@@ -9,7 +9,7 @@ class Rectangle:
         A Recatangle class that define a rectangle.
     '''
 
-    def __init__(self):
+    def __init__(self) -> None:
         '''
             Initialized a new instance.
         '''
