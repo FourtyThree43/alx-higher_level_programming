@@ -64,7 +64,7 @@ class Rectangle:
             TypeError: if value is not an integer
             ValueError: if value is less than 0
         '''
-        if type(value) is not (int):
+        if not isinstance(value, int):
             raise TypeError("width must an intager")
         if value < 0:
             raise ValueError("width must be >= 0")
@@ -92,7 +92,7 @@ class Rectangle:
             TypeError: if value is not an integer
             ValueError: if value is less than 0
         '''
-        if type(value) is not (int):
+        if not isinstance(value, int):
             raise TypeError("height must an intager")
         if value < 0:
             raise ValueError("height must be >= 0")
@@ -131,14 +131,15 @@ class Rectangle:
         if self.__width == 0 or self.__height == 0:
             return rec_string
         else:
-            for i in range(self.__height):
-                for j in range(self.__width):
+            for i in range(0, self.__height):
+                for j in range(0, self.__width):
                     rec_string += "#"
                 rec_string += "\n"
             return rec_string[:-1]
 
     def __repr__(self) -> str:
         return "Rectangle({}, {})".format(self.__width, self.__height)
-
+    '''
     def __del__(self) -> None:
-        print("Bye rectangle...")
+        print("Bye rectangle...", flush=True)
+    '''
