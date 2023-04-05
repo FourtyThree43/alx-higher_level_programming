@@ -61,7 +61,7 @@ class Rectangle:
             ValueError: if value is less than 0
         '''
         if not isinstance(value, int):
-            raise TypeError("width must an intager")
+            raise TypeError("width must an integer")
         if value < 0:
             raise ValueError("width must be >= 0")
         self.__width = value
@@ -89,7 +89,7 @@ class Rectangle:
             ValueError: if value is less than 0
         '''
         if not isinstance(value, int):
-            raise TypeError("height must an intager")
+            raise TypeError("height must an integer")
         if value < 0:
             raise ValueError("height must be >= 0")
         self.__height = value
