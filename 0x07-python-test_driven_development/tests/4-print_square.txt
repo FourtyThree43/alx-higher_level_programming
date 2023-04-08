@@ -6,13 +6,24 @@
 ####
 ####
 ####
+>>> print_square(10)
+##########
+##########
+##########
+##########
+##########
+##########
+##########
+##########
+##########
+##########
 >>> print_square(0)
 >>> print_square(1)
 #
 
 # Test 2: Invalid input - size less than 0
 >>> try:
-...    print_square(-1)
+...	    print_square(-1)
 ... except ValueError as e:
 ...     assert str(e) == "size must be >= 0"
 ... else:
@@ -26,9 +37,17 @@
 ... else:
 ...     raise AssertionError("Expected TypeError")
 
-# Test 4: Invalid input - size is not an integer or float
+# Test 4: Invalid input - size is not an integer
 >>> try:
 ...     print_square("4")
+... except TypeError as e:
+...     assert str(e) == "size must be an integer"
+... else:
+...     raise AssertionError("Expected TypeError")
+
+# Test 5: Invalid input - size is not an integer
+>>> try:
+...     print_square("")
 ... except TypeError as e:
 ...     assert str(e) == "size must be an integer"
 ... else:
