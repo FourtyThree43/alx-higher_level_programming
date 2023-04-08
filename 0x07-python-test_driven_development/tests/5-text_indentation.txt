@@ -12,3 +12,11 @@ Bora uhai.
 # Test 2: without punctuations
 >>> text_indentation("This is a long sentence with no punctuation marks in it")
 This is a long sentence with no punctuation marks in it
+
+# Test 3: text must be a str
+>>> try:
+...     text_indentation(2)
+... except TypeError as e:
+...     assert str(e) == "text must be a string"
+... else:
+...     raise AssertionError("Expected TypeError")
