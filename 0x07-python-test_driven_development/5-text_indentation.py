@@ -14,11 +14,13 @@ def text_indentation(text):
     if not isinstance(text, str):
         raise TypeError("text must be a string")
 
-    for i in range(len(text)):
-        if text[i] in [".", "?", ":"]:
-            print(text[i])
-            if i < len(text) - 1 and text[i+1] == " ":
-                i += 1
+    punctuation = (".", "?", ":")
+    last_char = ""
+
+    for char in text:
+        if char == " " and last_char in punctuation:
+            continue
+        print(char, end="")
+        if char in punctuation:
             print("\n")
-        else:
-            print(text[i], end="")
+        last_char = char
