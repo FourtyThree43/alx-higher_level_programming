@@ -1,0 +1,13 @@
+>>> text_indentation = __import__('5-text_indentation').text_indentation
+
+>>> text_indentation("vowels: aa, ae, ai, ao, au. meh?")
+vowels:
+
+
+ aa, ae, ai, ao, au.
+
+
+ meh?
+
+>>> text_indentation("vowels aa, ae, ai, ao, au meh")
+vowels aa, ae, ai, ao, au meh
