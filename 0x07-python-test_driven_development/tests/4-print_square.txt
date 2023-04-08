@@ -12,7 +12,7 @@
 
 # Test 2: Invalid input - size less than 0
 >>> try:
-...     print_square(-1)
+...    print_square(-1)
 ... except ValueError as e:
 ...     assert str(e) == "size must be >= 0"
 ... else:
