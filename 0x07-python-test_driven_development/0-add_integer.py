@@ -1,6 +1,8 @@
 #!/usr/bin/python3
+'''module to add integers'''
 
-def add_integer(a, b=98):
+
+def add_integer(a, b=98) -> int | float:
     """
     add two integersa + b
 
