@@ -38,7 +38,7 @@ UBlue='\033[4;34m'  UPurple='\033[4;35m' UCyan='\033[4;36m'  UWhite='\033[4;37m'
 On_Black='\033[40m' On_Red='\033[41m'    On_Green='\033[42m' On_Yellow='\033[43m'
 On_Blue='\033[44m'  On_Purple='\033[45m' On_Cyan='\033[46m'  On_White='\033[47m'
 
-check_output=$(find . -name '*.py' ! -name '*main*' ! -name '*test*' -exec pycodestyle --show-source --statistics {} +)
+check_output=$(find . -name '*.py' -exec pycodestyle --show-source --statistics {} +)
 
 if [[ $check_output == "" ]]; then
   printf "${BGreen}Check Done!${Color_off} ${BYellow}No errors found. ${White}${EMOTICONS[$RANDOM_INDEX]}${Color_off}\n"
