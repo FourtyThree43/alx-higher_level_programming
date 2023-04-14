@@ -2,7 +2,7 @@
 """Module Pascal's Triangle function."""
 
 
-def pascal_triangle(n):
+def pascal_triangle_1(n):
     """
     Represent Pascal's Triangle of size n.
     Returns a list of lists of integers representing the triangle.
@@ -19,3 +19,29 @@ def pascal_triangle(n):
         new_row += [1]
         pas_tri.append(new_row)
     return pas_tri
+
+
+def factorial(n):
+    """function to calculate factorial of a number"""
+    result = 1
+    for i in range(1, n+1):
+        result *= i
+    return result
+
+
+def pascal_triangle(n):
+    """
+    Calculating Pascal's triangle using the binomial theorem:
+    """
+    if n <= 0:
+        return []
+
+    triangle = []
+    for i in range(n):
+        row = []
+        for j in range(i + 1):
+            value = factorial(i) // (factorial(j) * factorial(i - j))
+            row.append(value)
+        triangle.append(row)
+
+    return triangle
