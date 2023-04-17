@@ -140,7 +140,7 @@ class Rectangle(Base):
         return "[Rectangle] ({}) {}/{} - {}/{}".format(self.id, self.x, self.y,
                                                        self.width, self.height)
 
-    def update(self, *args):
+    def update(self, *args, **kwargs):
         '''
         Assigns an argument to each attribute.
 
@@ -151,6 +151,12 @@ class Rectangle(Base):
                         3rd argument is the height attribute
                         4th argument is the x attribute
                         5th argument is the y attribute
+
+            kwargs (dict): Optional keyword arguments.
+                    Each key represents an attribute and its value represents
+                    the value to be assigned to the attribute.
+                    This type of argument is called a “key-worded argument”.
+                    Argument order is not important.
         '''
         if args and len(args) != 0:
             a = 0
@@ -171,3 +177,7 @@ class Rectangle(Base):
                 elif a == 4:
                     self.y = arg
                 a += 1
+
+        elif kwargs and len(kwargs) != 0:
+            for key, value in kwargs.items():
+                setattr(self, key, value)
