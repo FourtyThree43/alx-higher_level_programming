@@ -1,5 +1,6 @@
 #!/usr/bin/python3
 '''Module for a Rectangle class'''
+from types import NoneType
 from models.base import Base
 
 
@@ -27,7 +28,12 @@ class Rectangle(Base):
         y(self): Returns the current y-coordinate value.
         y(self, value): Sets the value for y-coordinate.
         __init__(self, width, height, x=0, y=0, id=None): Constructor for
-            initializing instance values.
+                                             initializing instance values.
+        area(self): Returns the area value of the rectangle
+        display(self): Prints in stdout the Rectangle instance with
+                       the character #
+        __str__(self): Returns [Rectangle] (<id>) <x>/<y> - <width>/<height>
+        update(self, *args): that assigns an argument to each attribute
     '''
 
     def __init__(self, width, height, x=0, y=0, id=None) -> None:
@@ -133,3 +139,35 @@ class Rectangle(Base):
         """Returns the string representation of the rectangle"""
         return "[Rectangle] ({}) {}/{} - {}/{}".format(self.id, self.x, self.y,
                                                        self.width, self.height)
+
+    def update(self, *args):
+        '''
+        Assigns an argument to each attribute.
+
+        Args:
+            args (ints):
+                        1st argument is the id attribute
+                        2nd argument is the width attribute
+                        3rd argument is the height attribute
+                        4th argument is the x attribute
+                        5th argument is the y attribute
+        '''
+        if args and len(args) != 0:
+            a = 0
+            num_args = len(args)
+            while a < num_args:
+                arg = args[a]
+                if a == 0:
+                    if arg is None:
+                        self.__init__(self.width, self.height, self.x, self.y)
+                    else:
+                        self.id = arg
+                elif a == 1:
+                    self.width = arg
+                elif a == 2:
+                    self.height = arg
+                elif a == 3:
+                    self.x = arg
+                elif a == 4:
+                    self.y = arg
+                a += 1
