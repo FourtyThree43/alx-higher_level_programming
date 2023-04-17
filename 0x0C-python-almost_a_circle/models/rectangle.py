@@ -1,6 +1,5 @@
 #!/usr/bin/python3
 '''Module for a Rectangle class'''
-from types import NoneType
 from models.base import Base
 
 
@@ -158,6 +157,7 @@ class Rectangle(Base):
                     This type of argument is called a “key-worded argument”.
                     Argument order is not important.
         '''
+        '''
         if args and len(args) != 0:
             a = 0
             num_args = len(args)
@@ -177,6 +177,11 @@ class Rectangle(Base):
                 elif a == 4:
                     self.y = arg
                 a += 1
+        '''
+        attrs = ['id', 'width', 'height', 'x', 'y']
+        if args:
+            for i in range(len(args)):
+                setattr(self, attrs[i], args[i])
 
         elif kwargs and len(kwargs) != 0:
             for key, value in kwargs.items():
