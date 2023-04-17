@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 '''Module for a Rectangle class'''
-from base import Base
+from models.base import Base
 
 
 class Rectangle(Base):
@@ -41,51 +41,73 @@ class Rectangle(Base):
             y (int): The y-coordinate of the rectangle's position (default 0).
             id (int): The ID of an instance of this class (default None).
 
+        Raises:
+            TypeError: If either of width or height is not an int.
+            ValueError: If either of width or height <= 0.
+            TypeError: If either of x or y is not an int.
+            ValueError: If either of x or y < 0.
+
         Returns:
             None.
         '''
-        super().__init__(id)
         self.__width = width
         self.__height = height
         self.__x = x
         self.__y = y
+        super().__init__(id)
 
     @property
-    def width(self):
+    def width(self) -> int:
         '''Returns the current width value'''
         return self.__width
 
     @width.setter
-    def width(self, value):
+    def width(self, value) -> None:
         '''Sets the value for width.'''
+        if not isinstance(value, int):
+            raise TypeError("width must be an integer")
+        if value <= 0:
+            raise ValueError("width must be > 0")
         self.__width = value
 
     @property
-    def height(self):
+    def height(self) -> int:
         '''Returns the current height value.'''
         return self.__height
 
     @height.setter
-    def height(self, value):
+    def height(self, value) -> None:
         '''Sets the value for height.'''
+        if not isinstance(value, int):
+            raise TypeError("height must be an integer")
+        if value <= 0:
+            raise ValueError("height must be > 0")
         self.__height = value
 
     @property
-    def x(self):
-        ''' Returns the current x-coordinate value.'''
+    def x(self) -> int:
+        '''Returns the current x-coordinate value.'''
         return self.__x
 
     @x.setter
-    def x(self, value):
+    def x(self, value) -> None:
         '''Sets the value for x-coordinate.'''
+        if not isinstance(value, int):
+            raise TypeError("x must be an integer")
+        if value < 0:
+            raise ValueError("x must be >= 0")
         self.__x = value
 
     @property
-    def y(self):
+    def y(self) -> int:
         '''Returns the current y-coordinate value.'''
         return self.__y
 
     @y.setter
-    def y(self, value):
+    def y(self, value) -> None:
         '''Sets the value for y-coordinate'''
-        self.__x = value
+        if not isinstance(value, int):
+            raise TypeError("y must be an integer")
+        if value < 0:
+            raise ValueError("y must be >= 0")
+        self.__y = value
