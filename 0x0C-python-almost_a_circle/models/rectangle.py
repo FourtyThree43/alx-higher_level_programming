@@ -32,7 +32,9 @@ class Rectangle(Base):
         display(self): Prints in stdout the Rectangle instance with
                        the character #
         __str__(self): Returns [Rectangle] (<id>) <x>/<y> - <width>/<height>
-        update(self, *args): that assigns an argument to each attribute
+        update(self, *args, **kwargs): assigns an argument to each attribute
+        to_dictionary(self): Returns the dictionary representation of
+                             a Rectanlge instance
     '''
 
     def __init__(self, width, height, x=0, y=0, id=None) -> None:

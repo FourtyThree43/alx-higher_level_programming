@@ -37,3 +37,31 @@ class TestSquare(unittest.TestCase):
         # Test update with kwargs
         square.update(y=4, x=5, size=20, id=2)
         self.assertEqual(str(square), "[Square] (2) 5/4 - 20")
+
+    def test_to_dictionary(self):
+        '''Tests for to_dictionary method'''
+
+        s1 = Square(10, 2, 1, 9)
+        s1_dict = s1.to_dictionary()
+        expected = {'id': 9, 'size': 10, 'x': 2, 'y': 1}
+        self.assertDictEqual(s1_dict, expected)
+
+        s2 = Square(5)
+        s2_dict = s2.to_dictionary()
+        expected = {'id': s2.id, 'size': 5, 'x': 0, 'y': 0}
+        self.assertEqual(s2_dict, expected)
+
+        s3 = Square(7, 3, 2)
+        s3_dict = s3.to_dictionary()
+        expected = {'id': s3.id, 'size': 7, 'x': 3, 'y': 2}
+        self.assertDictEqual(s3_dict, expected)
+
+        s4 = Square(2, 1, 1)
+        s4_dict = s4.to_dictionary()
+        expected = {'id': s4.id, 'size': 2, 'x': 1, 'y': 1}
+        self.assertDictEqual(s4_dict, expected)
+
+        s5 = Square(8, 5, 3, 10)
+        s5_dict = s5.to_dictionary()
+        expected = {'id': 10, 'size': 8, 'x': 5, 'y': 3}
+        self.assertDictEqual(s5_dict, expected)

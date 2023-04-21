@@ -15,6 +15,8 @@ class Square(Rectangle):
         __init__(self, size, x=0, y=0, id=None):
                         Constructor for initializing instance values.
         __str__(self): Returns a string representation of a Square instance.
+        to_dictionary(self): Returns the dictionary representation of
+                             a Square instance
     """
 
     def __init__(self, size, x=0, y=0, id=None) -> None:
@@ -89,3 +91,17 @@ class Square(Rectangle):
         elif kwargs and len(kwargs) != 0:
             for key, value in kwargs.items():
                 setattr(self, key, value)
+
+    def to_dictionary(self):
+        '''
+        Returns the dictionary representation of  a Square instance
+
+        Returns:
+            A dictionary representing a Rectangle instance with these keys:
+            - id
+            - size
+            - x
+            - y
+        '''
+        return {"id": self.id, "size": self.width,
+                "x": self.x, "y": self.y}
