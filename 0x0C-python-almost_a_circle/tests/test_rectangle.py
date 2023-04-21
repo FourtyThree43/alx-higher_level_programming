@@ -68,3 +68,30 @@ class TestRectangle(unittest.TestCase):
         self.assertEqual(self.rect.height, 20)
         self.assertEqual(self.rect.x, 30)
         self.assertEqual(self.rect.y, 40)
+
+    def test_to_dictionary(self):
+        '''Tests for to_dictionary method'''
+
+        r1 = Rectangle(10, 20, 2, 4, 6)
+        r1_dict = r1.to_dictionary()
+        expected = {'id': 6, 'width': 10, 'height': 20, 'x': 2, 'y': 4}
+        self.assertEqual(r1_dict, expected)
+
+        '''test_to_dictionary_default_values'''
+        r2 = Rectangle(1 ,1, 0, 0, 8)
+        r2_dict = r2.to_dictionary()
+        expected = {'id': 8, 'width': 1, 'height': 1, 'x': 0, 'y': 0}
+        self.assertEqual(r2_dict, expected)
+
+        '''test_to_dictionary_negative_value'''
+        r3 = Rectangle(5, 5, -2, -3, 10)
+        r3_dict = r3.to_dictionary()
+        expected = {'id': 10, 'width': 5, 'height': 5, 'x': -2, 'y': -3}
+        self.assertEqual(r3_dict, expected)
+
+        '''test_to_dictionary_large_values'''
+        r4 = Rectangle(999999999, 999999999, 999999999, 999999999, 999999999)
+        r4_dict = r4.to_dictionary()
+        expected = {'id': 999999999, 'width': 999999999, 'height': 999999999,
+                    'x': 999999999, 'y': 999999999}
+        self.assertEqual(r4_dict, expected)

@@ -63,7 +63,7 @@ class Rectangle(Base):
 
     @property
     def width(self) -> int:
-        '''Returns the current width value'''
+        '''Returns/Gets the current width value'''
         return self.__width
 
     @width.setter
@@ -77,7 +77,7 @@ class Rectangle(Base):
 
     @property
     def height(self) -> int:
-        '''Returns the current height value.'''
+        '''Returns/Gets the current height value.'''
         return self.__height
 
     @height.setter
@@ -91,7 +91,7 @@ class Rectangle(Base):
 
     @property
     def x(self) -> int:
-        '''Returns the current x-coordinate value.'''
+        '''Returns/Gets the current x-coordinate value.'''
         return self.__x
 
     @x.setter
@@ -105,7 +105,7 @@ class Rectangle(Base):
 
     @property
     def y(self) -> int:
-        '''Returns the current y-coordinate value.'''
+        '''Returns/Gets the current y-coordinate value.'''
         return self.__y
 
     @y.setter
@@ -139,7 +139,7 @@ class Rectangle(Base):
         return "[Rectangle] ({}) {}/{} - {}/{}".format(self.id, self.x, self.y,
                                                        self.width, self.height)
 
-    def update(self, *args, **kwargs):
+    def update(self, *args, **kwargs) -> None:
         '''
         Assigns an argument to each attribute.
 
@@ -186,3 +186,18 @@ class Rectangle(Base):
         elif kwargs and len(kwargs) != 0:
             for key, value in kwargs.items():
                 setattr(self, key, value)
+
+    def to_dictionary(self):
+        '''
+        Returns the dictionary representation of  a Rectangle instance
+
+        Returns:
+            A dictionary representing a Rectangle instance with these keys:
+            - id
+            - width
+            - height
+            - x
+            - y
+        '''
+        return {"id": self.id, "width": self.width, "height": self.height,
+                "x": self.x, "y": self.y}
