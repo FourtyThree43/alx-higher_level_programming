@@ -1,7 +1,6 @@
 #!/usr/bin/python3
 '''Module for unittests for Rectangle class'''
 
-from re import S
 import unittest
 import json
 from models.base import Base
@@ -16,12 +15,13 @@ class TestBase(unittest.TestCase):
         b1 = Base()
         assert isinstance(b1, Base)
         assert hasattr(b1, 'id')
-        '''assert b1.id == 1'''
+        assert b1.id
 
         b2 = Base()
         assert isinstance(b2, Base)
         assert hasattr(b2, 'id')
-        '''assert b2.id == 2'''
+        print(b2.id)
+        assert b2.id
 
 
     def test_init_with_id(self):
