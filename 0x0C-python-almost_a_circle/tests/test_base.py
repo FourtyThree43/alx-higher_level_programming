@@ -17,12 +17,14 @@ class TestBase(unittest.TestCase):
         assert hasattr(b1, 'id')
         assert b1.id
 
-        b2 = Base()
-        assert isinstance(b2, Base)
-        assert hasattr(b2, 'id')
-        print(b2.id)
-        assert b2.id
+        b2 = Base(None)
+        b3 = Base(None)
+        self.assertEqual(b2.id, b3.id - 1)
 
+        b4 = Base()
+        b5 = Base()
+        b6 = Base()
+        self.assertEqual(b4.id, b6.id - 2)
 
     def test_init_with_id(self):
         '''Test __init__ with ID'''
