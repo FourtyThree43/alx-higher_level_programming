@@ -38,8 +38,15 @@ class TestSquare(unittest.TestCase):
         square.update(y=4, x=5, size=20, id=2)
         self.assertEqual(str(square), "[Square] (2) 5/4 - 20")
 
+    def test_str(self):
+        s = Square(2, 3, 4, 5)
+        self.assertEqual(str(s), '[Square] (5) 3/4 - 2')
+
     def test_to_dictionary(self):
         '''Tests for to_dictionary method'''
+
+        s = Square(2, 3, 4, 5)
+        self.assertEqual(s.to_dictionary(), {'id': 5, 'size': 2, 'x': 3, 'y': 4})
 
         s1 = Square(10, 2, 1, 9)
         s1_dict = s1.to_dictionary()

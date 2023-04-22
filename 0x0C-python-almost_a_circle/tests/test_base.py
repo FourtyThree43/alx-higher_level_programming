@@ -113,6 +113,14 @@ class TestBase(unittest.TestCase):
         with open("Square.json", "r") as file:
             self.assertEqual(file.read(), '[{"id": 4, "size": 1, "x": 2, "y": 3}, {"id": 2, "size": 5, "x": 4, "y": 3}]')
 
+        Rectangle.save_to_file([])
+        with open("Rectangle.json", "r") as f:
+            self.assertEqual("[]", f.read())
+
+        Square.save_to_file([])
+        with open("Square.json", "r") as f:
+            self.assertEqual("[]", f.read())
+
     def test_load_from_file(self):
         r = Rectangle(1, 2, 3, 4, 5)
         r2 = Rectangle(5, 4, 3, 2, 1)
