@@ -1,7 +1,7 @@
 #!/usr/bin/node
 // prints x times “C is fun”
 const args = process.argv.slice(2);
-const x = parseInt(args[0]); // number of occurrences
+const x = parseInt(args[0], 10); // number of occurrences
 
 if (!isNaN(x)) {
   for (let i = 0; i < x; i++) {

@@ -6,7 +6,7 @@ function factorial (n) {
 }
 
 const args = process.argv.slice(2);
-const arg1 = parseInt(args[0]);
+const arg1 = parseInt(args[0], 10);
 const result = (isNaN(arg1)) ? 1 : factorial(arg1);
 
 console.log(result);
