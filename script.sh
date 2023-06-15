@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
+fileType=('*.py')
 
-for file in *.js; do
-	echo '#!/usr/bin/node' | cat - "$file" >temp && mv temp "$file"
+for file in ${fileType}; do
+	echo '#!/usr/bin/python3' | cat - "$file" >temp && mv temp "$file"
 done
