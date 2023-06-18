@@ -134,3 +134,4 @@ dmypy.json
 # random
 *.rtf
 *.bac
+log.txt
