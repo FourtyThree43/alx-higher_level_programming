@@ -53,5 +53,5 @@ if ($file_count > 0) {
 
     print "\nDone! Updating .$file_extension files.\n";
 } else {
-    print "No files found.\n";
+    print "No .$file_extension files found.\n";
 }
