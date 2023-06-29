@@ -1,3 +1,3 @@
 #!/bin/bash
-# Sends a DELETE request to the URL passed as the first argument and displays the body of the response
-curl -sX DELETE "1"
+# Takes in a URL and displays all HTTP methods the server will accept.
+curl -sI "$1" | sed -n 's/^Allow: //ip'
