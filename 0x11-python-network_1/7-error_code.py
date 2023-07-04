@@ -7,10 +7,12 @@ using the requests package.
 import requests
 from sys import argv
 
+from requests.models import Response
+
 if __name__ == '__main__':
     url: str = argv[1]
     req = requests.get(url)
-    status = req.status_codes
+    status: int = req.status_code
     body = req.text
 
     if status >= 400:
