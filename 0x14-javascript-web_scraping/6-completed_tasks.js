@@ -12,11 +12,11 @@ request.get(apiURL, (err, response, body) => {
     const taskData = JSON.parse(body);
 
     taskData.forEach((task) => {
-      if (task.completed) {
+      if (task.completed === true) {
         completed[task.userId] = (completed[task.userId] || 0) + 1;
       }
     });
-    console.log(JSON.stringify(completed, null, 2));
+    console.log(completed);
   } else {
     console.log(`Error code: ${response.statusCode}`);
   }
