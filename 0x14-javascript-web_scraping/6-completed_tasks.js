@@ -16,7 +16,7 @@ request.get(apiURL, (err, response, body) => {
         completed[task.userId] = (completed[task.userId] || 0) + 1;
       }
     });
-    console.log(completed);
+    console.log(JSON.stringify(completed, null, 2));
   } else {
     console.log(`Error code: ${response.statusCode}`);
   }
