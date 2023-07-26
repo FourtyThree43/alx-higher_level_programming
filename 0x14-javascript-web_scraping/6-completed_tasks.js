@@ -11,11 +11,16 @@ request.get(apiURL, (err, response, body) => {
     const completed = {};
     const taskData = JSON.parse(body);
 
-    taskData.forEach((task) => {
+    for (const i in taskData) {
+      const task = taskData[i];
       if (task.completed === true) {
-        completed[task.userId] = (completed[task.userId] || 0) + 1;
+        if (completed[task.userId] === undefined) {
+          completed[task.userId] = 1;
+        } else {
+          completed[task.userId]++;
+        }
       }
-    });
+    }
     console.log(completed);
   } else {
     console.log(`Error code: ${response.statusCode}`);
