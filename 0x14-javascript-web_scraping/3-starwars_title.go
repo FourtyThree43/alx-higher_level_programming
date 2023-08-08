@@ -4,6 +4,7 @@ import (
 	"encoding/json"
 	"fmt"
 	"io"
+	"log"
 	"net/http"
 	"os"
 )
@@ -15,7 +16,7 @@ type Movie struct {
 
 func main() {
 	if len(os.Args) != 2 {
-		fmt.Println("Useage: <app> <movieID>")
+		fmt.Println("Usage: <app> <movieID>")
 		return
 	}
 
@@ -24,23 +25,21 @@ func main() {
 
 	response, err := http.Get(url + movieID)
 	if err != nil {
-		fmt.Println(err)
-		return
+		log.Fatalln(err)
 	}
 	defer response.Body.Close()
 
 	body, err := io.ReadAll(response.Body)
 	if err != nil {
-		fmt.Println(err)
-		return
+		log.Fatalf("Failed to read response body: %s", err)
 	}
 
 	var movie Movie
 	err = json.Unmarshal(body, &movie)
 	if err != nil {
-		fmt.Println(err)
-		return
+		log.Fatalf("Failed to unmarshal movie details: %s", err)
 	}
 
 	fmt.Println(movie.Title)
+
 }

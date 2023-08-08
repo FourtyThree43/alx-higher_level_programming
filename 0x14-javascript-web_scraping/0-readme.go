@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"log"
 	"os"
 )
 
@@ -14,8 +15,7 @@ func main() {
 
 	content, err := os.ReadFile(filePath)
 	if err != nil {
-		fmt.Println(err)
-		return
+		log.Fatal(err)
 	}
 	fmt.Println(string(content))
 }
